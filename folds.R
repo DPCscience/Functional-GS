@@ -62,7 +62,7 @@ myrep<-function(g,h){
   }
   return(out)
 }
-################
+####EXAMPLE FOR REP1,REP NUMBER =1
 d<-myrep("rep1",1)
 lapply(names(d), function(x) {
   x1 <- out[[x]]
