@@ -32,18 +32,6 @@ names(output)<-c(paste("rep",1:length(output),sep=""))
 output <- lapply(output, function(x) as.data.frame(x))
 list2env(output, environment())
 ################
-  out <- vector("list", 5)
-  for(i in seq(1:5))
-  {
-    library(dplyr)
-    a<-select_(rep1, names.df[i])
-    a<-as.matrix(a)
-    colnames(a)<-"ROW"
-    check<-merge(DM,a,by="ROW")
-    check<-data.frame(1,check$CLONE)
-    out[[i]] <- list(check)
-  }
-################
 myrep<-function(g,h){
   out <- vector("list", 5)
   for(i in seq(1:5))
@@ -62,10 +50,9 @@ myrep<-function(g,h){
   }
   return(out)
 }
-####EXAMPLE FOR REP1,REP NUMBER =1
+####EXAMPLE FOR REP1,REP NUMBER =1, FILES IN PLINK FORMAT, FOR PLINK,GCTA,LDAK,etc
 d<-myrep("rep1",1)
 lapply(names(d), function(x) {
   x1 <- out[[x]]
   write.table(x1,row.names=FALSE,col.names=FALSE,file=paste( x,".txt",sep=""),quote= FALSE)
 })
-
