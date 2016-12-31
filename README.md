@@ -7,3 +7,9 @@ Channel created to compile and share code for a functional GS article.
 	-adjusting kinship matrices with an LD weight/score correction
 	-annotating snps into genome structure categories: intro,exon,UTRs,etc	
 	-including heritability values for genome structure categories
+
+
+
+# Scripts short description:
+
+getgformat.sh <- wrapper to transform a GBS vcf filtered file to the oxford "g" format required for running IMPUTE2
