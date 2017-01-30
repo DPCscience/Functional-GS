@@ -1,0 +1,52 @@
+---
+title: "Coseq"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+Code used to run the Co-expression analysis on the RNAseq data
+
+Manual on coseq on:
+
+https://bioconductor.org/packages/devel/bioc/manuals/coseq/man/coseq.pdf
+
+
+<span style="color:red">Testing Coseq functionalities on Alberts control plants </span>
+
+##TEST 
+This has to be ran from R > 3.4.0
+
+First upload the data
+
+```{r}
+
+#source("https://bioconductor.org/biocLite.R")
+#biocLite("coseq")
+
+library(coseq)
+
+matrix <- read.delim("/home/DB2/RNAseq_V2/COUNTS/COSEQ/AC.counts", header = F, row.names = 1)
+conds <- rep(c("6h", "24h", "48h", "5d", "8d", "45d", "54d"), each=3)
+conds <- rep(c("A", "B", "C", "D", "E", "F", "G"), each=3)
+
+coseqo <- coseqRun(y=matrix, K=9:20, conds = conds,  iter=5, transformation="arcsin")
+
+summary(coseqo)
+```
+
+```{r}
+
+plot(coseqo, order=T, conds=conds , average_over_conds=T)
+
+```
+
+
+
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+
