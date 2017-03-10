@@ -5,6 +5,9 @@
 #
 #######################################################################################################################################
 
+#Load library
+library(ff)
+
 # create and ff object from a table, in this case IMPUTE2.ready is a Dosage file with individuals as columns and markers as rows
 CBSD_Impute2 <- read.table.ffdf(file = "IMPUTE2.ready", header=TRUE, sep="\t", first.rows= 100000, next.rows = 150000, VERBOSE = TRUE)
 
