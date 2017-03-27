@@ -13,7 +13,7 @@ CBSD_Impute2 <- read.table.ffdf(file = "IMPUTE2.ready", header=TRUE, sep="\t", f
 
 # Save the ffobject, this might take long and will create a lot of *ff files plus CBSD_ff.ffData and CBSD_ff.RData
 # You will always have to setwd to the place where you create the *ff files in order to load the ff object
-ffsave(CBSD_Impute2, file = "CBSD_ff")
+ffsave(GGC1_Impute2, file = "GGC1_ff")
 
 # Loading the ff object
 ffload("CBSD_ff")
